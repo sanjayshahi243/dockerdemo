@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/app.css'%}">
+    <script src="{% static 'js/app.js' %}"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <form role="form" method="post" action="{% url 'add_file' %}" class="col-md-9 go-right">
+                {% csrf_token %}
+                <h2>Add Form</h2>
+                <p>Type message and give a file name.</p>
+                <div class="form-group">
+                    <input id="name" name="name" type="text" class="form-control" required>
+                    <label for="name">File Name</label>
+                </div>
+                <div class="form-group">
+                    <input id="phone" name="title" type="tel" class="form-control" required>
+                    <label for="phone">Title</label>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" class="form-control" required></textarea>
+                    <label for="message">Message</label>
+                </div>
+
+                <div>
+                    <button class="btn btn-gray btn-sm">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
